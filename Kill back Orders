@@ -1,26 +1,26 @@
 function KillBackOrder(type){ 
     salesOrder= nlapiLoadRecord(nlapiGetRecordType(), nlapiGetRecordId()); 
-		
-	if(salesOrder.getFieldText('class')!= 'Amazon FBA Canada'&& salesOrder.getFieldText('class')!= 'Amazon FBA US'&& salesOrder.getFieldText('class')!= 'Amazon.de'){
-		
-		var linecount = salesOrder.getLineItemCount('item'); 
+	var linecount = salesOrder.getLineItemCount('item'); 
 	        for (var i = 1; i <= linecount; i++){ 
         		var backordered = salesOrder.getLineItemValue('item', 'quantitybackordered', i); 
-			  if(backordered != '0'){
+			  	if(backordered != '0'){
 					for(var j= 1; j <= linecount; j++){ 
 						salesOrder.setLineItemValue('item', 'location', j, '1');
 						salesOrder.setFieldValue('custbody_override_so_loc_script','T');
 			
 					}
-			  }
+			        }
 			
        		}
 		nlapiSubmitRecord(salesOrder); 
-	}
+	
 }
 		
 			        
-			
+				
+
+		
+		
 	
 		
 		
