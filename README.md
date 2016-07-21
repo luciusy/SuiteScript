@@ -1,3 +1,3 @@
 # SuiteScript
 Suitescript sample code.
-Mainly focusing on saleforce automation. 
+Mainly focus on saleforce automation and ERP System. 
